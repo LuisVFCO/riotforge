@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Riot Forge Games Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        header img {
+            width: 100px;
+            display: block; /* Altera para 'block' para centralizar a imagem */
+            margin: 0 auto; /* Adiciona margem automática para centralizar */
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #111;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            background-color: #b30000;
+        }
+        .content {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1200px;
+            background-color: #1a1a1a;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        .content h2 {
+            color: #ff0000;
+        }
+        .game-card {
+            display: inline-block;
+            width: 30%;
+            margin: 10px;
+            text-align: center;
+            background-color: #333;
+            padding: 10px;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+            color: #fff;
+        }
+        .game-card img {
+            width: 100%;
+            height: auto;
+        }
+        .game-card h3 {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #ff0000;
+        }
+        .footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="data:image/png;base64,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" alt="Riot Forge Logo">
+    <h1>Welcome to Riot Forge Games Hub</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Games</a>
+    <a href="#">Categories</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="content">
+    <h2>Featured Riot Forge Games</h2>
+
+    <div class="game-card">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1276790/header.jpg?t=1709574331" alt="Ruined King: A League of Legends Story">
+        <h3>Ruined King: A League of Legends Story</h3>
+        <p>Enfrente a Ruína - Reúna um grupo de Campeões de League of Legends, explore Águas de Sentina e viaje às Ilhas das Sombras para desvendar os segredos da temível Névoa Negra neste envolvente RPG em turnos.</p>
+    </div>
+
+    <div class="game-card">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1457080/header.jpg?t=1720737340" alt="The Mageseeker: A League of Legends Story">
+        <h3>The Mageseeker: A League of Legends Story</h3>
+        <p>Jogue com Sylas, um mago recém-libertado após anos de cativeiro. Use as correntes que um dia prenderam você para libertar Demacia da tirania dos Caçadores de Magos.</p>
+    </div>
+
+    <div class="game-card">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1276800/header.jpg?t=1707178625" alt="CONV/RGENCE: A League of Legends Story">
+        <h3>CONV/RGENCE: A League of Legends Story</h3>
+        <p>Explore a vasta cidade de Zaun como Ekko, um jovem inventor com um dispositivo que manipula o tempo, neste jogo de ação em plataforma rico em narrativa. Colete peças, crie Engenhocas e desbloqueie habilidades. Depois, rebobine o tempo e se adapte a cada novo desafio.</p>
+    </div>
+
+    <div class="game-card">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1651960/header.jpg?t=1655222718" alt="CONV/RGENCE: A League of Legends Story">
+        <h3>Hextech Mayhem: A League of Legends Story</h3>
+        <p>Neste jogo de ritmo frenético, toda ação gera uma reação explosiva, e aqui o caos é a palavra de ordem. Assuma o papel de Ziggs, o especialista em Hexplosivos, e toque o terror nas redondezas de Piltover!</p>
+    </div>
+
+    <div class="game-card">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1333200/header.jpg?t=1702617989" alt="CONV/RGENCE: A League of Legends Story">
+        <h3>Song of Nunu: A League of Legends Story</h3>
+        <p>Melhores amigos, uma incrível aventura. Junte-se aos melhores amigos Nunu e Willump em uma aventura pelos campos gelados de Freljord. Song of Nunu: A League of Legends Story é uma aventura narrativa para um jogador, desenvolvida pela Tequila Works.</p>
+    </div>
+
+    <div class="game-card">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1759380/header.jpg?t=1710190745" alt="CONV/RGENCE: A League of Legends Story">
+        <h3>Bandle Tale: A League of Legends Story</h3>
+        <p>Bandle Tale: A League of Legends Story é um RPG ambientado no mundo de Bandópolis. Depois que algo de errado acontece em uma festa, os portais que conectam seu lar acabam ruindo e tudo vira um caos! Use sua magia tricoteira e mochila-casa para restaurar os portais e reunir Bandópolis.</p>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Riot Forge Games Hub - All Rights Reserved</p>
+</div>
+
+</body>
+</html>
